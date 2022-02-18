@@ -1,10 +1,16 @@
 # Starter pipeline
+- task: katalonTask@1
+  inputs:
+    version: '8.2.5'
 # Start with a minimal pipeline that you can customize to build and deploy your code.
 # Add steps that build, run tests, deploy, and more:
 # https://aka.ms/yaml
 
 trigger:
 - master
+- task: katalonTask@1
+  inputs:
+    executeArgs: 'katalonc -noSplash -runMode=console -projectPath="C:\Users\marie.ledesma\git\Jenkins2\Jenkins2.prj" -retry=0 -testSuitePath="Test Suites/New Test Suite2" -browserType="Chrome" -executionProfile="default" -apiKey="2f12d3eb-4aab-4b15-93ae-7778c8c42734" -orgID=309439 --config -webui.autoUpdateDrivers=true'
 
 pool:
   vmImage: ubuntu-latest
